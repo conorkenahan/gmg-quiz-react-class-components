@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Context from "./Context"
 
 export default class App extends React.Component {
   state = {
@@ -16,10 +17,12 @@ export default class App extends React.Component {
   }
   render() {
       return (
-        <div className="App">
-          <h1>Who sang what?</h1>
-          <h2>A short quiz about the Beatles</h2>
-        </div>
+        <Context.Provider value={this.state}>
+          <div className="App">
+            <h1>Who sang what?</h1>
+            <h2>A short quiz about the Beatles</h2>
+          </div>
+        </Context.Provider>
       );
   }
 }
