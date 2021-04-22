@@ -1,11 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Question from "./Question";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Question from './Question';
+import Context from "../../Context";
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
+const value = {
+  step: 'Start',
+  score: 0,
+  correct: [],
+  currentQuestion: 0,
+  questions: [{
+    "title": "",
+    "answers": [""],
+    "correct": ""
+  }],
+  checkAnswer: () => {},
+  resetQuiz: () => {}
+}
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
   ReactDOM.render(
-    <Question />,
+    <Context.Provider value={value}>
+      <Question />
+    </Context.Provider>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);
