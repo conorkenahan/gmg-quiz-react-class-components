@@ -6,10 +6,12 @@ const Question = () => {
     return (
         <Context.Consumer>
             {context => (
-                <div className='question'>
-                    <p>{context.questions[context.currentQuestion].title}</p>
-                    <Answers />
-                </div>
+                context && (
+                    <div className='question'>
+                        <p>{context.questions[context.currentQuestion].title}</p>
+                        <Answers />
+                    </div>
+                )
             )}
         </Context.Consumer>
     )

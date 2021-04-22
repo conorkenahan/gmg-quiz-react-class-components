@@ -5,11 +5,13 @@ const Answers = () => {
     return (
         <Context.Consumer>
             {context => (
-                <div className='answers'>
-                    {context.questions[context.currentQuestion].answers.map((answer, i) => (
+                context && (
+                    <div className='answers'>
+                        {context && context.questions[context.currentQuestion].answers.map((answer, i) => (
                         <button className="answer" key={i} onClick={() => context.checkAnswer(answer)}>{answer}</button>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )
             )}
         </Context.Consumer>
     )
