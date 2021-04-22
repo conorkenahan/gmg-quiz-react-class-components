@@ -11,7 +11,7 @@ const Summary = () => {
               {context.questions.map((question, i) => (
                 <div key={i}>
                   <p>{question.title}</p>
-                  <p className={`${context.correct[i]}`}>{question.correct}</p>
+                  <p className={`${question.answeredCorrect ? 'correct' : 'incorrect'}`}>{question.correct}</p>
                 </div>
               ))}
           </div>
