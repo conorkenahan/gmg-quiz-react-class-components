@@ -6,7 +6,8 @@ const Summary = () => {
         <Context.Consumer>
             {context => (
                 <div className='summary'>
-                    Summary
+                    <p>You scored {context.score} out of {context.questions.length} correct!</p>
+                    <button onClick={() => context.resetQuiz()}>Reset Quiz</button>
                 </div>
             )}
         </Context.Consumer>

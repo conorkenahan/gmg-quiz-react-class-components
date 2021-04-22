@@ -10,6 +10,24 @@ export default class App extends React.Component {
     score: 0,
     currentQuestion: 0,
     questions: [],
+
+    checkAnswer: (guess) => {
+      let { score, currentQuestion } = this.state;
+      if (guess === this.state.questions[this.state.currentQuestion].correct) {
+        score++;
+      }
+      currentQuestion++;
+      if (currentQuestion >= this.state.questions.length) {
+        this.setState({ score, step: 'summary'})
+      }
+      else {
+        this.setState({ score, currentQuestion})
+      }
+    },
+
+    resetQuiz: () => {
+      this.setState({step: 'start', score: 0, currentQuestoin: 0})
+    }
   }
 
   componentDidMount(){
