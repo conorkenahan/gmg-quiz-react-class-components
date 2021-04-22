@@ -7,7 +7,7 @@ const Answers = () => {
             {context => (
                 <div className='answers'>
                     {context.questions[context.currentQuestion].answers.map((answer, i) => (
-                        <button key={i} onClick={() => context.checkAnswer(answer)}>{answer}</button>
+                        <button className="answer" key={i} onClick={() => context.checkAnswer(answer)}>{answer}</button>
                     ))}
                 </div>
             )}

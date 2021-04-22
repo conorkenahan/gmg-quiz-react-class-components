@@ -8,13 +8,18 @@ export default class App extends React.Component {
   state = {
     step: 'start',
     score: 0,
+    correct: [],
     currentQuestion: 0,
     questions: [],
 
     checkAnswer: (guess) => {
-      let { score, currentQuestion } = this.state;
-      if (guess === this.state.questions[this.state.currentQuestion].correct) {
+      let { score, currentQuestion, questions } = this.state;
+      if (guess === questions[currentQuestion].correct) {
         score++;
+        this.state.correct.push('correct');
+      }
+      if (guess !== questions[currentQuestion].correct) {
+        this.state.correct.push('incorrect');
       }
       currentQuestion++;
       if (currentQuestion >= this.state.questions.length) {
@@ -26,7 +31,7 @@ export default class App extends React.Component {
     },
 
     resetQuiz: () => {
-      this.setState({step: 'start', score: 0, currentQuestoin: 0})
+      this.setState({step: 'start', score: 0, currentQuestion: 0, correct: []})
     }
   }
 

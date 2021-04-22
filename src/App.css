@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.correct {
+  color:green;
+}
+
+.incorrect{
+  color:red;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer{
+  width: 80px;
+  margin: auto auto 10px auto;
+}
